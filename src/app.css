@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+
+@theme {
+    --font-sans: 'JetBrains Sans', sans-serif;
+    --color-bg-black: #1a1a1a;
+    --color-bg-gray: #292929;
+    --color-text-white: #ffffff;
+    --color-text-gray: #b3b3b3;
+    --color-accent: #7F52FF;
+    --color-primary: #7F52FF;
+    --color-secondary: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'JetBrains Sans', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #19191C;
+    color: #ffffff;
+}
