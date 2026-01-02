@@ -1,15 +1,14 @@
 <script>
-  import Navbar from "../components/Navbar.svelte";
+  import { asset } from '$app/paths';
   import SocialMediaButtons from "../components/SocialMediaButtons.svelte";
 </script>
 
-<Navbar></Navbar>
 <section class="hero-section pt-24" aria-labelledby="hero-heading">
   <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
           <div class="flex flex-col md:flex-row items-center gap-12">
               <div class="w-full md:w-1/2">
-                  <img src="profile.png"
+                  <img src={asset('/profile.png')}
                        alt="Bart van Helvert"
                        class="profile-image rounded-full w-64 h-64 object-cover object-[20%_75%] mx-auto shadow-lg profile-border"
                        width="2160"

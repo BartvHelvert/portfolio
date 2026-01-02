@@ -1,17 +1,11 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import Navbar from "../../components/Navbar.svelte";
+  import { resolve } from '$app/paths';
   import CardPanel from "../../components/CardPanel.svelte";
-  import { loadProjects, type Project } from "../../lib/content";
+  import type { PageData } from "./$types";
 
-  let projects: Project[] = [];
-
-  onMount(async () => {
-    projects = await loadProjects();
-  });
+  export let data: PageData;
+  $: ({ projects } = data);
 </script>
-
-<Navbar></Navbar>
 
 <main class="pt-24 min-h-screen">
   <div class="container mx-auto px-4 py-12">
@@ -24,7 +18,7 @@
               title={project.title}
               description={project.description}
               tags={project.tags}
-              link={`/projects/${project.slug}`}
+              link={resolve(`/projects/${project.slug}`)}
               variant="project"
             />
           {/each}

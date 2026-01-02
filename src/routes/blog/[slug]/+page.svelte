@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from '$app/paths';
   import ContentLayout from "../../../components/ContentLayout.svelte";
   import type { PageData } from './$types';
   
@@ -12,7 +13,7 @@
   date={post.date}
   tags={post.tags}
   content={post.content}
-  backLink="/blog"
+  backLink={resolve('/blog')}
   backLabel="Back to Blog"
   tagVariant="blog"
 />

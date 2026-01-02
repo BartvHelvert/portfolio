@@ -66,21 +66,8 @@ export async function loadBlogPosts(): Promise<BlogPost[]> {
 
 // Load a single blog post
 export async function loadBlogPost(slug: string): Promise<BlogPost | null> {
-  try {
-    const module = await import(`/src/content/blog/${slug}.md`) as MarkdownModule;
-    if (!module.default) return null;
-    
-    return {
-      slug,
-      title: module.metadata?.title || 'Untitled',
-      date: module.metadata?.date || '',
-      description: module.metadata?.description || '',
-      tags: ensureStringArray(module.metadata?.tags),
-      content: module.default
-    };
-  } catch {
-    return null;
-  }
+  const posts = await loadBlogPosts();
+  return posts.find(p => p.slug === slug) || null;
 }
 
 // Load all projects
@@ -109,19 +96,7 @@ export async function loadProjects(): Promise<Project[]> {
 
 // Load a single project
 export async function loadProject(slug: string): Promise<Project | null> {
-  try {
-    const module = await import(`/src/content/projects/${slug}.md`) as MarkdownModule;
-    if (!module.default) return null;
-    
-    return {
-      slug,
-      title: module.metadata?.title || 'Untitled',
-      description: module.metadata?.description || '',
-      tags: ensureStringArray(module.metadata?.tags),
-      content: module.default
-    };
-  } catch {
-    return null;
-  }
+  const projects = await loadProjects();
+  return projects.find(p => p.slug === slug) || null;
 }
 

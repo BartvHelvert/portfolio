@@ -1,17 +1,11 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import Navbar from "../../components/Navbar.svelte";
+  import { resolve } from '$app/paths';
   import CardPanel from "../../components/CardPanel.svelte";
-  import { loadBlogPosts, type BlogPost } from "../../lib/content";
+  import type { PageData } from "./$types";
 
-  let posts: BlogPost[] = [];
-
-  onMount(async () => {
-    posts = await loadBlogPosts();
-  });
+  export let data: PageData;
+  $: ({ posts } = data);
 </script>
-
-<Navbar></Navbar>
 
 <main class="pt-24 min-h-screen">
   <div class="container mx-auto px-4 py-12">
@@ -25,7 +19,7 @@
               description={post.description}
               date={post.date}
               tags={post.tags}
-              link={`/blog/${post.slug}`}
+              link={resolve(`/blog/${post.slug}`)}
               variant="blog"
             />
           {/each}

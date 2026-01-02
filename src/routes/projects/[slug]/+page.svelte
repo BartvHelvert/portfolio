@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from '$app/paths';
   import ContentLayout from "../../../components/ContentLayout.svelte";
   import type { PageData } from './$types';
   
@@ -11,7 +12,7 @@
   description={project.description}
   tags={project.tags}
   content={project.content}
-  backLink="/projects"
+  backLink={resolve('/projects')}
   backLabel="Back to Projects"
   tagVariant="project"
 />
