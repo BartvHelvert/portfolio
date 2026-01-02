@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
-import { loadBlogPost } from '../../../lib/content';
-import type { PageLoad } from './$types';
+import { loadBlogPost, loadBlogPosts } from '../../../lib/content';
+import type { PageLoad, EntryGenerator } from './$types';
 
 export const load: PageLoad = async ({ params }) => {
   const post = await loadBlogPost(params.slug);
@@ -12,5 +12,10 @@ export const load: PageLoad = async ({ params }) => {
   return {
     post
   };
+};
+
+export const entries: EntryGenerator = async () => {
+  const posts = await loadBlogPosts();
+  return posts.map((post) => ({ slug: post.slug }));
 };
 

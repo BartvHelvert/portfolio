@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Navbar from "./Navbar.svelte";
   import { formatDate, getISODate } from "../lib/date-utils";
   import type { Component } from "svelte";
 
@@ -14,8 +13,6 @@
 
   const RenderComponent = content;
 </script>
-
-<Navbar></Navbar>
 
 <main class="pt-24 min-h-screen">
   <div class="container mx-auto px-4 py-12">

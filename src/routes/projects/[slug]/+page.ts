@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
-import { loadProject } from '../../../lib/content';
-import type { PageLoad } from './$types';
+import { loadProject, loadProjects } from '../../../lib/content';
+import type { PageLoad, EntryGenerator } from './$types';
 
 export const load: PageLoad = async ({ params }) => {
   const project = await loadProject(params.slug);
@@ -12,5 +12,10 @@ export const load: PageLoad = async ({ params }) => {
   return {
     project
   };
+};
+
+export const entries: EntryGenerator = async () => {
+  const projects = await loadProjects();
+  return projects.map((project) => ({ slug: project.slug }));
 };
 
