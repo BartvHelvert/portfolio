@@ -13,7 +13,7 @@
 
 <svelte:element
   this={isBlog ? "article" : "div"}
-  class="bg-[#292929] border border-[#3a3a3a] rounded-lg shadow-lg hover:shadow-xl hover:border-accent/30 transition-all {isBlog ? 'p-8' : 'p-6'}"
+  class="bg-bg-gray border border-[#3a3a3a] rounded-lg shadow-lg hover:shadow-xl hover:border-accent/30 transition-all {isBlog ? 'p-8' : 'p-6'}"
 >
   {#if date}
     <div class="flex items-center gap-4 mb-4">
