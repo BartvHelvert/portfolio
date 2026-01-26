@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { formatDate, getISODate } from "../lib/date-utils";
+  import { formatDate, getISODate } from "$lib/date-utils";
   import type { Component } from "svelte";
 
   export let title: string;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { formatDate, getISODate } from "../lib/date-utils";
+  import { formatDate, getISODate } from "$lib/date-utils";
 
   export let title: string;
   export let description: string;
